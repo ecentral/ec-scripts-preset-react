@@ -1,0 +1,82 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    options: {
+        // Introduce new options:
+        // Define page title
+        title: 'React App',
+        // Set default html template
+        htmlTemplate: require.resolve('./index.ejs'),
+    },
+
+    addons: (config) => ({
+        eslint: {
+            extends: require.resolve('eslint-config-airbnb'),
+            env: {
+                browser: true,
+            },
+            rules: {
+                'import/no-unresolved': 'off',
+                'import/extensions': 'off',
+                'import/no-extraneous-dependencies': 'off',
+                'react/jsx-indent': ['warn', 4],
+                'react/jsx-indent-props': ['warn', 4],
+                'react/jsx-filename-extension': 'off',
+                'react/sort-comp': 'off',
+                'react/prop-types': 'warn',
+                'react/forbid-prop-types': 'off',
+                'react/no-unused-prop-types': 'off',
+                'react/prefer-stateless-function': 'warn',
+                'react/no-array-index-key': 'off',
+                'react/require-default-props': 'off',
+                'jsx-a11y/no-noninteractive-element-interactions': 'off',
+                'jsx-a11y/no-static-element-interactions': 'off'
+            },
+        },
+
+        babel: {
+            '$presets': (presets) => ([
+                ...presets,
+                require.resolve('babel-preset-react'),
+            ]),
+        },
+    }),
+
+    runners: (config) => ({
+        webpack: {
+            '$entry.main': (entries = []) => {
+                if (config.options.devMode) {
+                    return [
+                        require.resolve('react-hot-loader/patch'),
+                        ...entries,
+                    ];
+                }
+
+                return entries;
+            },
+            '$module.rules[**].use[**][loader=babel-loader]': (loader) => ({
+                ...loader,
+                query: {
+                    ...loader.query,
+                    plugins: [
+                        ...(loader.query.plugins || []),
+                        require.resolve('react-hot-loader/babel'),
+                    ],
+                },
+            }),
+            '$plugins': (plugins = []) => ([
+                ...plugins,
+                new HtmlWebpackPlugin({
+                    title: config.options.title,
+                    template: config.options.htmlTemplate,
+                }),
+            ]),
+
+            resolve: {
+                alias: {
+                    'react-hot-loader': require.resolve('react-hot-loader'),
+                },
+            },
+        },
+    }),
+};
