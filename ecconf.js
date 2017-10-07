@@ -1,20 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
-    options: {
-        // Introduce new options:
-        // Define page title
-        title: 'React App',
-        // Set default html template
-        htmlTemplate: require.resolve('./index.ejs'),
-    },
-
     addons: (config) => ({
         eslint: {
             extends: require.resolve('eslint-config-airbnb'),
-            env: {
-                browser: true,
-            },
             rules: {
                 'import/no-unresolved': 'off',
                 'import/extensions': 'off',
@@ -65,14 +52,6 @@ module.exports = {
                     ],
                 },
             }),
-
-            plugins: (plugins = []) => ([
-                ...plugins,
-                new HtmlWebpackPlugin({
-                    title: config.options.title,
-                    template: config.options.htmlTemplate,
-                }),
-            ]),
 
             resolve: {
                 alias: {
