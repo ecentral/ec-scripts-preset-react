@@ -1,7 +1,15 @@
 {
   "name": "ec-scripts-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React preset for ec-scripts.",
+  "author": "eCentral GmbH <info@ecentral.de>",
+  "contributors": [
+    "Felix Laukel <f.laukel@ecentral.de>"
+  ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://gitlab.ecentral.de/f.laukel/ec-scripts-react.git"
+  },
   "main": "ecconf.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
