@@ -1,7 +1,12 @@
 module.exports = {
     addons: (config) => ({
+        ...config.addons,
+
         eslint: {
-            extends: require.resolve('eslint-config-airbnb'),
+            extends: (prevExtends) => ([
+                ...prevExtends,
+                require.resolve('eslint-config-airbnb'),
+            ]),
             rules: {
                 'import/no-unresolved': 'off',
                 'import/extensions': 'off',
@@ -22,7 +27,7 @@ module.exports = {
         },
 
         babel: {
-            '$presets': (presets) => ([
+            presets: (presets) => ([
                 ...presets,
                 require.resolve('babel-preset-react'),
             ]),
@@ -30,6 +35,8 @@ module.exports = {
     }),
 
     runners: (config) => ({
+        ...config.runners,
+
         webpack: {
             '$entry.main': (entries = []) => {
                 if (config.options.devMode) {
