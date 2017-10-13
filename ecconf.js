@@ -49,15 +49,17 @@ module.exports = {
                 return entries;
             },
 
-            '$module.rules[**].use[**][loader=babel-loader]': (loader) => ({
-                ...loader,
-                options: {
-                    ...loader.options,
-                    plugins: [
-                        ...(loader.options.plugins || []),
-                        require.resolve('react-hot-loader/babel'),
-                    ],
-                },
+            '$module.rules[**].use[**][loader=babel-loader].options': (loaderOptions = {}) => ({
+                ...loaderOptions,
+                plugins: [
+                    ...(loaderOptions.plugins || []),
+                    require.resolve('react-hot-loader/babel'),
+                ],
+            }),
+
+            '$module.rules[**].use[**][loader=css-loader].options': (loaderOptions = {}) => ({
+                ...loaderOptions,
+                modules: true,
             }),
 
             resolve: {
