@@ -1,7 +1,12 @@
 module.exports = {
     addons: (config) => ({
+        ...config.addons,
+
         eslint: {
-            extends: require.resolve('eslint-config-airbnb'),
+            extends: (prevExtends) => ([
+                ...prevExtends,
+                require.resolve('eslint-config-airbnb'),
+            ]),
             rules: {
                 'import/no-unresolved': 'off',
                 'import/extensions': 'off',
@@ -22,7 +27,7 @@ module.exports = {
         },
 
         babel: {
-            '$presets': (presets) => ([
+            presets: (presets) => ([
                 ...presets,
                 require.resolve('babel-preset-react'),
             ]),
@@ -30,6 +35,8 @@ module.exports = {
     }),
 
     runners: (config) => ({
+        ...config.runners,
+
         webpack: {
             '$entry.main': (entries = []) => {
                 if (config.options.devMode) {
@@ -42,15 +49,17 @@ module.exports = {
                 return entries;
             },
 
-            '$module.rules[**].use[**][loader=babel-loader]': (loader) => ({
-                ...loader,
-                options: {
-                    ...loader.options,
-                    plugins: [
-                        ...(loader.options.plugins || []),
-                        require.resolve('react-hot-loader/babel'),
-                    ],
-                },
+            '$module.rules[**].use[**][loader=babel-loader].options': (loaderOptions = {}) => ({
+                ...loaderOptions,
+                plugins: [
+                    ...(loaderOptions.plugins || []),
+                    require.resolve('react-hot-loader/babel'),
+                ],
+            }),
+
+            '$module.rules[**].use[**][loader=css-loader].options': (loaderOptions = {}) => ({
+                ...loaderOptions,
+                modules: true,
             }),
 
             resolve: {

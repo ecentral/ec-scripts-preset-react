@@ -1,14 +1,14 @@
 {
   "name": "ec-scripts-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React preset for ec-scripts.",
   "author": "eCentral GmbH <info@ecentral.de>",
   "contributors": [
     "Felix Laukel <f.laukel@ecentral.de>"
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "https://gitlab.ecentral.de/f.laukel/ec-scripts-react.git"
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.ecentral.de/f.laukel/ec-scripts-react.git"
   },
   "main": "ecconf.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-hot-loader": "^3.0.0-beta.7",
+    "react-hot-loader": "^3.0.0",
     "react-test-renderer": "^16.0.0"
   },
   "peerDependencies": {
