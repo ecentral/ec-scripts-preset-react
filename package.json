@@ -6,6 +6,11 @@
   "contributors": [
     "Felix Laukel <f.laukel@ecentral.de>"
   ],
+  "keywords": [
+    "ec-scripts",
+    "preset",
+    "react"
+  ],
   "repository": {
     "type": "git",
     "url": "https://gitlab.ecentral.de/f.laukel/ec-scripts-preset-react.git"
