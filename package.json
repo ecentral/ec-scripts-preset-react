@@ -1,14 +1,19 @@
 {
-  "name": "ec-scripts-react",
+  "name": "ec-scripts-preset-react",
   "version": "0.2.1",
   "description": "React preset for ec-scripts.",
   "author": "eCentral GmbH <info@ecentral.de>",
   "contributors": [
     "Felix Laukel <f.laukel@ecentral.de>"
   ],
+  "keywords": [
+    "ec-scripts",
+    "preset",
+    "react"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://gitlab.ecentral.de/f.laukel/ec-scripts-react.git"
+    "url": "https://github.com/ecentral/ec-scripts-preset-react.git"
   },
   "main": "ecconf.js",
   "scripts": {
