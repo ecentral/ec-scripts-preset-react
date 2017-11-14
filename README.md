@@ -14,8 +14,9 @@ This preset enables:
 ## Installation
 
 Using eC CLI:
+
 ```
 ec-cli init react
 ```
 
-If you want to add this preset to an existing project, please read the eC Scripts installation guide.
+If you want to add this preset to an existing project, please read the eC Scripts [installation guide](https://github.com/ecentral/ec-scripts).
