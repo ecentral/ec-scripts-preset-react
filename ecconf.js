@@ -25,9 +25,13 @@ module.exports = {
         },
 
         babel: {
-            presets: (presets) => ([
+            presets: (presets = []) => ([
                 ...presets,
                 require.resolve('babel-preset-react'),
+            ]),
+            plugins: (plugins = []) => ([
+                ...plugins,
+                require.resolve('react-hot-loader/babel'),
             ]),
         },
     }),
@@ -36,25 +40,6 @@ module.exports = {
         ...config.runners,
 
         webpack: {
-            '$entry.main': (entries = []) => {
-                if (config.options.devMode) {
-                    return [
-                        require.resolve('react-hot-loader/patch'),
-                        ...entries,
-                    ];
-                }
-
-                return entries;
-            },
-
-            '$module.rules[**].use[**][loader=babel-loader].options': (loaderOptions = {}) => ({
-                ...loaderOptions,
-                plugins: [
-                    ...(loaderOptions.plugins || []),
-                    require.resolve('react-hot-loader/babel'),
-                ],
-            }),
-
             '$module.rules[**].use[**][loader=css-loader].options': (loaderOptions = {}) => ({
                 ...loaderOptions,
                 modules: true,
