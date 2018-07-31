@@ -30,7 +30,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-hot-loader": "^3.0.0",
+    "react-hot-loader": "^4.0.0",
     "react-test-renderer": "^16.0.0"
   },
   "peerDependencies": {
