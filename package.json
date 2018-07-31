@@ -1,6 +1,6 @@
 {
   "name": "ec-scripts-preset-react",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "React preset for ec-scripts.",
   "author": "eCentral GmbH <info@ecentral.de>",
   "contributors": [
