@@ -27,7 +27,7 @@ module.exports = {
         babel: {
             presets: (presets = []) => ([
                 ...presets,
-                require.resolve('babel-preset-react'),
+                require.resolve('@babel/preset-react'),
             ]),
             plugins: (plugins = []) => ([
                 ...plugins,
