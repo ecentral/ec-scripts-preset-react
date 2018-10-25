@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
+    "@babel/preset-react": "^7.0.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
     "eslint-config-airbnb": "^15.0.1",
@@ -34,6 +34,6 @@
     "react-test-renderer": "^16.0.0"
   },
   "peerDependencies": {
-    "ec-scripts": "0.x || 1.x"
+    "ec-scripts": "1.x || 2.x"
   }
 }
