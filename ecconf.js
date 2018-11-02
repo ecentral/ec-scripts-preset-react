@@ -44,6 +44,14 @@ module.exports = {
                 ...loaderOptions,
                 modules: true,
             }),
+            '$module.rules':  (rules = []) => [
+                {
+                    test: /\.svg$/,
+                    issuer: { test: /\.jsx?$/ },
+                    use: ['@svgr/webpack', 'file-loader'],
+                },
+                ...rules,
+            ],
         },
 
         jest: {
