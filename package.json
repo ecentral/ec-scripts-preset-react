@@ -21,19 +21,19 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/webpack": "^3.1.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.4.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-hot-loader": "^4.0.0",
-    "react-test-renderer": "^16.0.0"
+    "react-hot-loader": "^4.0.0"
   },
   "peerDependencies": {
-    "ec-scripts": "0.x || 1.x"
+    "ec-scripts": "1.x || 2.x",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-test-renderer": "^16.0.0"
   }
 }

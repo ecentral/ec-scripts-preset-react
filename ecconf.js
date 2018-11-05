@@ -27,7 +27,7 @@ module.exports = {
         babel: {
             presets: (presets = []) => ([
                 ...presets,
-                require.resolve('babel-preset-react'),
+                require.resolve('@babel/preset-react'),
             ]),
             plugins: (plugins = []) => ([
                 ...plugins,
@@ -44,24 +44,17 @@ module.exports = {
                 ...loaderOptions,
                 modules: true,
             }),
-
-            resolve: {
-                alias: {
-                    'react': require.resolve('react'),
-                    'react-dom': require.resolve('react-dom'),
-                    'react-hot-loader': require.resolve('react-hot-loader'),
+            '$module.rules':  (rules = []) => [
+                {
+                    test: /\.svg$/,
+                    issuer: { test: /\.jsx?$/ },
+                    use: ['@svgr/webpack', 'file-loader'],
                 },
-            },
+                ...rules,
+            ],
         },
 
         jest: {
-            moduleNameMapper: {
-                '^react$': require.resolve('react'),
-                '^enzyme$': require.resolve('enzyme'),
-                '^enzyme-adapter-react-16$': require.resolve('enzyme-adapter-react-16'),
-                '^react-test-renderer/shallow$': require.resolve('react-test-renderer/shallow'),
-            },
-
             setupFiles: (files = []) => ([
                 ...files,
                 require.resolve('./config/jest/setupEnv'),
