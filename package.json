@@ -28,12 +28,12 @@
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.4.0",
-    "react-hot-loader": "^4.0.0"
-  },
-  "peerDependencies": {
-    "ec-scripts": "1.x || 2.x",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-hot-loader": "^4.0.0",
     "react-test-renderer": "^16.0.0"
+  },
+  "peerDependencies": {
+    "ec-scripts": "1.x || 2.x"
   }
 }
