@@ -1,2 +1,4 @@
-export default 'SvgMock';
-export const ReactComponent = 'SvgComponentMock';
+module.exports = {
+    default: 'SvgMock',
+    ReactComponent: 'SvgComponentMock',
+};
