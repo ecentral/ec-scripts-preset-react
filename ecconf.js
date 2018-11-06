@@ -59,6 +59,9 @@ module.exports = {
                 ...files,
                 require.resolve('./config/jest/setupEnv'),
             ]),
-        }
+            moduleNameMapper: {
+                '\\.svg': require.resolve('./config/jest/svgrMock'),
+            },
+        },
     }),
 };
