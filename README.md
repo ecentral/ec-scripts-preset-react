@@ -2,6 +2,8 @@
 
 Extends eC Scripts configuration with React support.
 
+**⚠ THIS REPO IS DEPRECATED. Please use the multi-package repo at [ecentral-scripts](https://github.com/ecentral/ecentral-scripts). ⚠**
+
 ## Quick Overview
 
 This preset enables:
